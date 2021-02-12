@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if couleur == 'blue' %}
+    <div style="background-color: {{ couleur }}">Couleur : {{ couleur }}</div>
+{% elseif couleur == 'red' %}
+    <div style="background-color: red; color:white">VIrus. Danger</div>
+{% endif %}
+{% endblock %}
