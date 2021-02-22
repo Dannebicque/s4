@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Repository\PostCategoryRepository;
+use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +14,8 @@ class PostController extends AbstractController
 {
     /**
      * @Route("/post", name="post")
+     *
+     * @return Response
      */
     public function index(EntityManagerInterface $entityManager): Response
     {
@@ -26,5 +30,23 @@ class PostController extends AbstractController
         return $this->render('post/index.html.twig', [
             'post' => $post
         ]);
+    }
+
+    /**
+     * @Route("/liste", name="post_liste")
+     *
+     * @return Response
+     */
+    public function liste(PostRepository $postRepository, PostCategoryRepository $postCategoryRepository): Response
+    {
+        $posts = $postRepository->findAll();
+        $postCategories = $postCategoryRepository->findAll();
+
+        return $this->render('post/liste.html.twig',
+        [
+            'posts' => $posts,
+            'postCategories' => $postCategories
+        ]);
+
     }
 }
