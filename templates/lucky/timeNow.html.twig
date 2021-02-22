@@ -3,5 +3,8 @@
 {% block body %}
 <h1>Time Now</h1>
 
-<p>Nous somme le {{ date }}</p>
+    <img src="{{ asset('logoiut_fc.png') }}" alt="">
+
+<p>Nous somme le {{ date|date('d/m/Y H:i') }}</p>
+<p>Nous somme le {{ date|format_datetime('long', 'short', locale='fr') }}</p>
 {% endblock %}

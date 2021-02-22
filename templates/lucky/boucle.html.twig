@@ -2,3 +2,5 @@
 {% for salle in tableau %}
 <p>{{ loop.index }} {{ salle }}  {{ loop.revindex }}</p>
 {% endfor %}
+
+{{ include('lucky/_message.html.twig') }}

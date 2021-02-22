@@ -32,7 +32,7 @@ class LuckyController extends AbstractController
         $date = new \DateTime('now');
         return $this->render('lucky/timeNow.html.twig',
         [
-            'date' => $date->format('d/m/Y H:i')
+            'date' => $date
         ]);
     }
 

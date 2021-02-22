@@ -2,8 +2,12 @@
 
 {% block body %}
 {% if couleur == 'blue' %}
-    <div style="background-color: {{ couleur }}">Couleur : {{ couleur }}</div>
+    <div style="background-color: {{ couleur }}">Couleur : {{ couleur|first|upper }}</div>
 {% elseif couleur == 'red' %}
-    <div style="background-color: red; color:white">VIrus. Danger</div>
+    <div style="background-color: red; color:white">Virus. Danger</div>
 {% endif %}
+    {{ include('lucky/_message.html.twig') }}
+
 {% endblock %}
+
+
